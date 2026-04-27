@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BPKH Sovereign AI · Kedaulatan Data Keuangan Haji</title>
+<meta name="description" content="Platform AI berdaulat untuk Badan Pengelola Keuangan Haji — pemrosesan 100% on-premise, audit trail ISO 37002, kepatuhan UU 8/1997 & UU 34/2014." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy-900: #0A2540; --navy-800: #103A5C; --navy-700: #1E5A8A;
+    --gold-500: #D4AF37; --gold-400: #E5C457; --gold-100: #F4E4BC;
+    --cream: #FBF7EE; --ink: #1A1F2E; --ink-soft: #4A5568; --ink-muted: #718096;
+    --line: rgba(10, 37, 64, 0.08); --line-strong: rgba(10, 37, 64, 0.18);
+    --bg: #F7F5F0; --surface: #FFFFFF; --surface-2: #FAF8F3;
+    --green: #16A34A; --green-bg: #DCFCE7; --green-ink: #166534;
+    --amber-bg: #FEF3C7; --amber-ink: #854D0E;
+    --shadow-sm: 0 1px 2px rgba(10, 37, 64, 0.04);
+    --shadow-md: 0 4px 16px rgba(10, 37, 64, 0.08);
+    --shadow-lg: 0 12px 40px rgba(10, 37, 64, 0.12);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Manrope', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; font-size: 15px; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* NAV */
+  .nav { position: sticky; top: 0; z-index: 100; background: rgba(247, 245, 240, 0.85); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--line); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; color: var(--navy-900); }
+  .brand-mark { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, var(--navy-900), var(--navy-800)); color: var(--gold-500); display: grid; place-items: center; font-family: 'Fraunces', serif; font-size: 14px; font-weight: 700; box-shadow: var(--shadow-sm); }
+  .nav-links { display: flex; gap: 28px; font-size: 13px; font-weight: 500; color: var(--ink-soft); }
+  .nav-links a:hover { color: var(--navy-900); }
+  .nav-cta { background: var(--navy-900); color: var(--gold-100); padding: 8px 18px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; transition: all 0.15s; }
+  .nav-cta:hover { background: var(--navy-800); transform: translateY(-1px); }
+  @media (max-width: 720px) { .nav-links { display: none; } }
+
+  /* HERO */
+  .hero { padding: 80px 0 64px; position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; top: -100px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: 'Fraunces', serif; font-size: 11px; letter-spacing: 0.28em; color: var(--gold-500); text-transform: uppercase; font-weight: 500; margin-bottom: 20px; }
+  .hero-eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--gold-500); }
+  .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(36px, 6vw, 64px); font-weight: 500; line-height: 1.05; letter-spacing: -0.025em; margin: 0 0 24px; color: var(--navy-900); max-width: 920px; }
+  .hero h1 em { font-style: italic; color: var(--gold-500); font-weight: 400; }
+  .hero-lede { font-size: 18px; color: var(--ink-soft); max-width: 680px; margin: 0 0 36px; line-height: 1.65; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 56px; }
+  .btn-primary { background: var(--navy-900); color: var(--gold-100); padding: 14px 28px; border-radius: 999px; font-size: 14px; font-weight: 600; letter-spacing: 0.01em; box-shadow: var(--shadow-md); transition: all 0.18s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-primary:hover { background: var(--navy-800); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .btn-secondary { background: var(--surface); color: var(--navy-900); padding: 14px 28px; border-radius: 999px; font-size: 14px; font-weight: 600; border: 0.5px solid var(--line-strong); transition: all 0.18s; display: inline-flex; align-items: center; gap: 8px; }
+  .btn-secondary:hover { border-color: var(--gold-500); background: var(--cream); }
+  .btn-arrow { transition: transform 0.18s; }
+  .btn-primary:hover .btn-arrow, .btn-secondary:hover .btn-arrow { transform: translateX(3px); }
+
+  .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 0.5px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); }
+  .hero-stat { background: var(--surface); padding: 22px 24px; }
+  .hero-stat-value { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 500; color: var(--navy-900); letter-spacing: -0.02em; line-height: 1; }
+  .hero-stat-value sup { font-size: 14px; color: var(--gold-500); font-weight: 600; margin-left: 2px; vertical-align: super; }
+  .hero-stat-label { font-size: 11px; color: var(--ink-muted); margin-top: 8px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+  @media (max-width: 720px) { .hero-stats { grid-template-columns: repeat(2, 1fr); } .hero { padding: 48px 0 40px; } }
+
+  /* SECTION HEADERS */
+  .section { padding: 80px 0; }
+  .section-eyebrow { font-family: 'Fraunces', serif; font-size: 11px; letter-spacing: 0.28em; color: var(--gold-500); text-transform: uppercase; font-weight: 500; margin-bottom: 12px; }
+  .section h2 { font-family: 'Fraunces', serif; font-size: clamp(28px, 4vw, 40px); font-weight: 500; letter-spacing: -0.02em; margin: 0 0 16px; color: var(--navy-900); max-width: 760px; line-height: 1.15; }
+  .section-lede { font-size: 16px; color: var(--ink-soft); max-width: 640px; margin: 0 0 48px; line-height: 1.65; }
+
+  /* PILLARS */
+  .pillars { background: var(--surface); border-top: 0.5px solid var(--line); border-bottom: 0.5px solid var(--line); }
+  .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 900px) { .pillars-grid { grid-template-columns: 1fr; } }
+  .pillar { padding: 28px; border: 0.5px solid var(--line); border-radius: 16px; background: var(--surface-2); transition: all 0.2s; }
+  .pillar:hover { border-color: var(--gold-500); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .pillar-icon { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--navy-900), var(--navy-800)); color: var(--gold-500); display: grid; place-items: center; margin-bottom: 18px; font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; }
+  .pillar h3 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; margin: 0 0 10px; color: var(--navy-900); letter-spacing: -0.01em; }
+  .pillar p { font-size: 14px; color: var(--ink-soft); margin: 0 0 14px; line-height: 1.65; }
+  .pillar-meta { font-size: 11px; color: var(--ink-muted); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; }
+
+  /* COMPLIANCE STRIP */
+  .compliance { background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%); color: var(--gold-100); padding: 64px 0; position: relative; overflow: hidden; }
+  .compliance::before { content: ""; position: absolute; left: -100px; bottom: -100px; width: 360px; height: 360px; background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%); pointer-events: none; }
+  .compliance-eyebrow { font-family: 'Fraunces', serif; font-size: 11px; letter-spacing: 0.28em; color: var(--gold-500); text-transform: uppercase; font-weight: 500; margin-bottom: 12px; }
+  .compliance h2 { font-family: 'Fraunces', serif; font-size: clamp(26px, 3.5vw, 36px); font-weight: 500; margin: 0 0 36px; color: var(--gold-100); letter-spacing: -0.015em; line-height: 1.2; max-width: 820px; }
+  .compliance-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  @media (max-width: 900px) { .compliance-grid { grid-template-columns: repeat(2, 1fr); } }
+  .compliance-item { padding: 20px; border: 0.5px solid rgba(212, 175, 55, 0.25); border-radius: 12px; background: rgba(244, 228, 188, 0.04); }
+  .compliance-code { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gold-500); font-weight: 600; letter-spacing: 0.04em; margin-bottom: 8px; }
+  .compliance-name { font-size: 13px; color: rgba(244, 228, 188, 0.9); line-height: 1.55; }
+
+  /* DEMO CTA */
+  .demo-cta { background: var(--cream); border: 0.5px solid var(--gold-500); border-radius: 24px; padding: 56px 48px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; box-shadow: var(--shadow-md); position: relative; overflow: hidden; }
+  .demo-cta::before { content: ""; position: absolute; top: -80px; right: -80px; width: 280px; height: 280px; background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%); pointer-events: none; }
+  @media (max-width: 900px) { .demo-cta { grid-template-columns: 1fr; padding: 36px 28px; } }
+  .demo-cta h2 { font-family: 'Fraunces', serif; font-size: clamp(24px, 3vw, 32px); font-weight: 500; margin: 0 0 14px; letter-spacing: -0.015em; color: var(--navy-900); }
+  .demo-cta p { font-size: 15px; color: var(--ink-soft); margin: 0 0 24px; line-height: 1.65; }
+  .demo-mock { background: var(--surface); border-radius: 14px; padding: 18px; border: 0.5px solid var(--line); box-shadow: var(--shadow-md); position: relative; z-index: 1; }
+  .demo-mock-head { display: flex; gap: 6px; margin-bottom: 12px; }
+  .demo-mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .demo-mock-dot:nth-child(1) { background: #FF5F57; }
+  .demo-mock-dot:nth-child(2) { background: #FEBC2E; }
+  .demo-mock-dot:nth-child(3) { background: #28C840; }
+  .demo-mock-row { background: var(--surface-2); border-radius: 6px; padding: 10px 12px; margin-bottom: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-soft); border-left: 2px solid var(--gold-500); }
+  .demo-mock-row span { color: var(--green-ink); }
+
+  /* AUDIENCE */
+  .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .audience-grid { grid-template-columns: 1fr; } }
+  .audience { background: var(--surface); border: 0.5px solid var(--line); border-radius: 14px; padding: 24px; }
+  .audience-tag { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--gold-500); text-transform: uppercase; font-weight: 600; margin-bottom: 10px; }
+  .audience h4 { font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500; margin: 0 0 10px; color: var(--navy-900); }
+  .audience p { font-size: 13px; color: var(--ink-soft); margin: 0; line-height: 1.65; }
+
+  /* FOOTER */
+  .footer { background: var(--navy-900); color: rgba(244, 228, 188, 0.7); padding: 48px 0 32px; }
+  .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; }
+  @media (max-width: 720px) { .footer-inner { grid-template-columns: 1fr; } }
+  .footer-brand { font-family: 'Fraunces', serif; font-size: 18px; color: var(--gold-100); margin-bottom: 8px; font-weight: 500; }
+  .footer-tagline { font-size: 12px; line-height: 1.65; max-width: 320px; }
+  .footer-col-title { font-family: 'Fraunces', serif; font-size: 12px; color: var(--gold-500); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; font-weight: 600; }
+  .footer-col a { display: block; font-size: 13px; color: rgba(244, 228, 188, 0.65); padding: 4px 0; transition: color 0.15s; }
+  .footer-col a:hover { color: var(--gold-100); }
+  .footer-bottom { margin-top: 36px; padding-top: 20px; border-top: 0.5px solid rgba(212, 175, 55, 0.18); font-size: 11px; color: rgba(244, 228, 188, 0.45); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand">
+      <div class="brand-mark">B</div>
+      BPKH Sovereign AI
+    </a>
+    <div class="nav-links">
+      <a href="#pillars">Pilar</a>
+      <a href="#compliance">Kepatuhan</a>
+      <a href="#audience">Pengguna</a>
+      <a href="#demo">Demo</a>
+    </div>
+    <a href="demo.html" class="nav-cta">Buka MONI →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">Komite Audit · Direktorat Pengawasan</div>
+    <h1>Kedaulatan data keuangan haji,<br/><em>tanpa kompromi.</em></h1>
+    <p class="hero-lede">Platform AI berdaulat untuk Badan Pengelola Keuangan Haji — seluruh inferensi LLM dieksekusi 100% on-premise, dengan audit trail kriptografis yang memenuhi UU 8/1997 tentang Dokumen Perusahaan dan ISO 37002 Whistleblowing Management Systems.</p>
+    <div class="hero-actions">
+      <a href="demo.html" class="btn-primary">
+        Buka Live Demo MONI <span class="btn-arrow">→</span>
+      </a>
+      <a href="#pillars" class="btn-secondary">
+        Pelajari Arsitektur <span class="btn-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value">220<sup>+</sup></div>
+        <div class="hero-stat-label">Regulasi Terkurasi</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">3.2K</div>
+        <div class="hero-stat-label">Chunk Vektor</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">100<sup>%</sup></div>
+        <div class="hero-stat-label">On-Premise</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">0</div>
+        <div class="hero-stat-label">Cloud Egress</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="pillars section" id="pillars">
+  <div class="container">
+    <div class="section-eyebrow">Tiga Pilar Berdaulat</div>
+    <h2>Arsitektur yang membuktikan kepatuhan, bukan sekadar mengklaimnya.</h2>
+    <p class="section-lede">DALIL, DAWWIN, dan WBS — tiga modul fungsional yang berjalan di atas satu Gateway sensitivity-aware dengan log inferensi append-only di Postgres.</p>
+
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-icon">D</div>
+        <h3>DALIL</h3>
+        <p>Mesin pencari regulasi haji dengan retrieval semantik dari 220+ dokumen — UU, PMA, Perpres, Perban BPKH, fatwa MUI, dan PSAK Syariah — dilengkapi compliance check dan cross-reference otomatis.</p>
+        <div class="pillar-meta">7 MCP TOOLS · PORT 9001 · QDRANT 768D</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">D</div>
+        <h3>DAWWIN</h3>
+        <p>Asisten penyusun kertas kerja audit berbasis kerangka C4R (Condition, Criteria, Cause, Consequence, Recommendation), dengan tautan kriptografis ke baris audit log inferensi yang menghasilkannya.</p>
+        <div class="pillar-meta">6 MCP TOOLS · PORT 9002 · C4R FRAMEWORK</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">W</div>
+        <h3>WBS</h3>
+        <p>Whistleblowing System sesuai ISO 37002 — identitas pelapor disimpan sebagai token, redaksi PII otomatis sebelum LLM, model triage lokal, dan akses berbasis matriks peran berlapis.</p>
+        <div class="pillar-meta">5 MCP TOOLS · PORT 9003 · 127.0.0.1 ONLY</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="compliance" id="compliance">
+  <div class="container">
+    <div class="compliance-eyebrow">Bukti, bukan janji</div>
+    <h2>Setiap inferensi tercatat. Setiap akses tertelusuri. Setiap keputusan dapat dipertanggungjawabkan.</h2>
+    <div class="compliance-grid">
+      <div class="compliance-item">
+        <div class="compliance-code">UU 8 / 1997</div>
+        <div class="compliance-name">Dokumen Perusahaan — log inferensi append-only sebagai alat bukti elektronik</div>
+      </div>
+      <div class="compliance-item">
+        <div class="compliance-code">UU 34 / 2014</div>
+        <div class="compliance-name">Pengelolaan Keuangan Haji — kedaulatan data dana umat di yurisdiksi Indonesia</div>
+      </div>
+      <div class="compliance-item">
+        <div class="compliance-code">ISO 37002</div>
+        <div class="compliance-name">Whistleblowing Management Systems — perlindungan pelapor & redaksi PII otomatis</div>
+      </div>
+      <div class="compliance-item">
+        <div class="compliance-code">UU 27 / 2022</div>
+        <div class="compliance-name">Pelindungan Data Pribadi — tidak ada egress data ke yurisdiksi luar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="demo">
+  <div class="container">
+    <div class="demo-cta">
+      <div>
+        <div class="section-eyebrow">Live Demo</div>
+        <h2>MONI Command Center untuk Komite Audit BPKH.</h2>
+        <p>Standalone single-file dashboard dengan 220 regulasi nyata, visualisasi Chart.js untuk routing matrix dan sovereignty score, simulator C4R generation, dan jejak audit berjalan. Tanpa instalasi — buka di browser.</p>
+        <a href="demo.html" class="btn-primary">
+          Luncurkan Demo MONI <span class="btn-arrow">→</span>
+        </a>
+      </div>
+      <div class="demo-mock">
+        <div class="demo-mock-head">
+          <div class="demo-mock-dot"></div>
+          <div class="demo-mock-dot"></div>
+          <div class="demo-mock-dot"></div>
+        </div>
+        <div class="demo-mock-row">POST /v1/route <span>→ ollama-local</span></div>
+        <div class="demo-mock-row">service=dalil sensitivity=internal</div>
+        <div class="demo-mock-row">model=qwen2.5:7b latency=842ms</div>
+        <div class="demo-mock-row">audit_id=<span>a3f9c2e1</span> ✓ logged</div>
+        <div class="demo-mock-row">sovereignty_score: <span>100%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="audience">
+  <div class="container">
+    <div class="section-eyebrow">Untuk Siapa</div>
+    <h2>Dirancang bersama auditor, untuk auditor.</h2>
+    <p class="section-lede">Tiga peran kunci di lingkup BPKH yang menerima nilai langsung dari platform ini.</p>
+    <div class="audience-grid">
+      <div class="audience">
+        <span class="audience-tag">01 / Komite Audit</span>
+        <h4>Pengawasan independen dengan jejak bukti yang dapat dipertanggungjawabkan.</h4>
+        <p>Dasbor MONI memberi visibilitas penuh atas seluruh inferensi AI, klasifikasi sensitivitas, dan keputusan routing — siap dijadikan kertas kerja audit.</p>
+      </div>
+      <div class="audience">
+        <span class="audience-tag">02 / Direktorat Pengawasan Internal</span>
+        <h4>Otomasi penyusunan kertas kerja C4R dengan citasi regulasi yang dapat diverifikasi.</h4>
+        <p>DAWWIN mempercepat siklus engagement dari hari ke jam, sambil menjaga setiap rekomendasi terhubung ke regulasi sumber dan baris log inferensi yang menghasilkannya.</p>
+      </div>
+      <div class="audience">
+        <span class="audience-tag">03 / Unit Whistleblowing</span>
+        <h4>Tata kelola pelaporan pelanggaran sesuai ISO 37002.</h4>
+        <p>Identitas pelapor terlindungi melalui tokenisasi, redaksi PII otomatis sebelum LLM diakses, dan matriks akses peran yang ditegakkan di lapisan MCP — bukan hanya di gateway.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">BPKH Sovereign AI</div>
+        <div class="footer-tagline">Platform AI berdaulat untuk pengelolaan keuangan haji — dirancang sesuai amanah UU 34/2014 dan prinsip-prinsip syariah.</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Modul</div>
+        <a href="#pillars">DALIL · Regulasi</a>
+        <a href="#pillars">DAWWIN · Audit</a>
+        <a href="#pillars">WBS · Whistleblowing</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Sumber</div>
+        <a href="demo.html">Live Demo MONI</a>
+        <a href="#compliance">Kerangka Kepatuhan</a>
+        <a href="https://github.com/mshadianto/bpkh-moni">Repositori GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BPKH Sovereign AI · v5.5</span>
+      <span>BUILD 2026.04 · ON-PREM · 0 EGRESS</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
